@@ -1,0 +1,67 @@
+{
+  "name": "@ankhorage/graphdb",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Provider-neutral persistence boundary for durable graph databases.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankhorage/graphdb.git"
+  },
+  "homepage": "https://github.com/ankhorage/graphdb#readme",
+  "bugs": {
+    "url": "https://github.com/ankhorage/graphdb/issues"
+  },
+  "keywords": [
+    "ankhorage",
+    "database",
+    "graph",
+    "persistence",
+    "typescript"
+  ],
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "examples"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/graphdb.d.ts",
+      "import": "./dist/graphdb.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.build.json",
+    "changeset": "ankhorage-changeset",
+    "changeset:status": "ankhorage-changeset status --since=origin/main",
+    "check-types": "bun run typecheck",
+    "docs": "paradox",
+    "format": "ankhorage-prettier --write .",
+    "format:check": "ankhorage-prettier --check .",
+    "knip:check": "ankhorage-knip",
+    "lint": "ankhorage-eslint . --max-warnings=0",
+    "lint:fix": "ankhorage-eslint . --fix --max-warnings=0",
+    "prepack": "bun run build",
+    "test": "bun test src",
+    "typecheck": "bun x tsc --noEmit -p tsconfig.json",
+    "version-packages": "ankhorage-changeset version"
+  },
+  "devDependencies": {
+    "@ankhorage/devtools": "^2.3.26",
+    "@ankhorage/paradox": "^0.3.5",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.5",
+    "typescript": "~6.0.3"
+  },
+  "packageManager": "bun@1.4.2"
+}
