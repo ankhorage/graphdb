@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "kind": "contract",
+  "title": "Ankhorage Graph Database",
+  "summary": "Records the repository boundary reserved for a provider-neutral graph database port.",
+  "purpose": "Keep ownership of graph persistence contracts distinct from generic in-memory graph algorithms and provider adapters.",
+  "domain": "graph database persistence",
+  "responsibilities": [
+    "Own the repository-level boundary for a standalone graph database port when it is released."
+  ],
+  "boundaries": [
+    "Does not currently publish a graph database package or runtime implementation.",
+    "Does not own generic in-memory graph algorithms or concrete provider clients."
+  ],
+  "audience": [
+    "Maintainers defining or consuming a future provider-neutral graph persistence boundary."
+  ],
+  "architecture": {
+    "role": "Non-source contract repository with no published port on the current default branch.",
+    "invariants": [
+      "A future port remains provider-neutral and concrete graph databases remain in separate adapters."
+    ]
+  },
+  "constraints": {
+    "limitations": [
+      "The current default branch contains licensing and repository metadata only; no graph database API is shipped."
+    ]
+  }
+}
